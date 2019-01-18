@@ -5,18 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diathrive | Welcome</title>
   <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+ 
   <style type="text/css">
     body{
       font-family: nimbus-sans,Arial,"Helvetica Neue",Helvetica,sans-serif;
       color: #242678;
     }
-    .review{
-      padding:2em 10% 2em 10%;
+
+     .review{
+      padding:2% 10% 2% 10%;
       background-color: #EEE;
     }
+
+    @media only screen and (max-width: 700px) {
+      .review{
+        padding:0% 0% 0% 0%;
+        background-color: #EEE;
+      }
+    }  
+
     .button{
       background-color: #00a3bb
     }
+
     h1{
       font-family: "Nimbus Sans Bold",Arial,"Helvetica Neue",Helvetica,sans-serif;
       font-weight: bold;
@@ -25,7 +36,33 @@
       font-family: "Nimbus Sans Bold",Arial,"Helvetica Neue",Helvetica,sans-serif;
       font-weight: bold;
     }
+    .slide-arrow{
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+    }
+    .prev-arrow{
+      left: -40px;
+      width: 0;
+      height: 0;
+      border-left: 0 solid transparent;
+      border-right: 15px solid #113463;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    .next-arrow{
+      right: -40px;
+      width: 0;
+      height: 0;
+      border-right: 0 solid transparent;
+      border-left: 15px solid #113463;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
   </style>
+
+  <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 </head>
 <body>
 
@@ -64,17 +101,17 @@
 
   <div class="column row">
     <hr>
-      <div style="padding:3%">
-        <h3>Reviews</h3>
-        <br>
-        <div class="review" style="padding: 5% 10% 0% 10%">
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Frobertbernacchi%2Fposts%2F1991115024265856%3A0&width=auto" width="500" height="470" style="width:100%;border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+      <h3>What our customers are saying</h3>
+      <div class="carousel-container">
+        <div class="review">
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Frobertbernacchi%2Fposts%2F1991115024265856%3A0&width=auto" width="500" height="470" style="width:100%;border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
         </div>
         <div class="review">
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgonzou2%2Fposts%2F10155511284452322%3A0&width=auto" width="500" height="440" style="width:100%;border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fgonzou2%2Fposts%2F10155511284452322%3A0&width=auto" width="500" height="440" style="width:100%;border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media">
+          </iframe>
         </div>
-        <div class="review" style="padding: 0% 10% 5% 10%">
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmelissa.aker.75%2Fposts%2F10216555598701872%3A0&width=auto" width="500" height="354" style="width:100%;border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+        <div class="review">
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmelissa.aker.75%2Fposts%2F10216555598701872%3A0&width=auto" width="500" height="360" style="width:100%;border:none;overflow:hidden" scrolling="yes" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
         </div>
       </div>
   </div>
@@ -88,9 +125,37 @@
   </ul>
   </div>
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+ 
   <script>
-    $(document).foundation();
+    
+    $(document).ready(function(){
+      $(document).foundation();
+      $('.carousel-container').slick({
+        autoplay: true,
+        infinite: false,
+        arrows: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplaySpeed: 5000,
+        draggable: true,
+        prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+        nextArrow: '<button class="slide-arrow next-arrow"></button>',
+        adaptiveHeight: true,
+        responsive: [
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: '0%',
+            }
+          }
+        ]
+      });
+    });
+
   </script>
 </body>
 </html>
